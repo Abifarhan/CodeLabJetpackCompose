@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,6 +53,8 @@ private fun MyApp(names: List<String> = listOf("World", "Compose")) {
 
 @Composable
 fun Greeting(name: String) {
+    var expanded = remember{ mutableStateOf(false)} //Don't do this
+
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp,
@@ -62,8 +66,9 @@ fun Greeting(name: String) {
                 Text(text = "Hello,")
                 Text(text = name)
             }
-            OutlinedButton(onClick = { /*TODO*/ }, ) {
-                Text(text = "Show more")
+            OutlinedButton(onClick = { expanded.value = !expanded.value }) {
+
+                Text(if (expanded.value) "Show less" else "Show more")
             }
         }
 
