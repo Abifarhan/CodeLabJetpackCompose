@@ -21,10 +21,18 @@ class MainActivity : ComponentActivity() {
             CodeLabJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+//                    Greeting("Android")
+                    MyApp()
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MyApp() {
+    androidx.compose.material.Surface(color = MaterialTheme.colors.background) {
+        Greeting(name = "Android New")
     }
 }
 
