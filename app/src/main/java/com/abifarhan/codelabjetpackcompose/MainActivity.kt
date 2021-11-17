@@ -59,10 +59,10 @@ fun Greeting(name: String) {
 //    Image()
 }
 
-@Preview(showBackground = true, name = "Text preview")
+@Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
     CodeLabJetpackComposeTheme {
-        Greeting("Android")
+        MyApp()
     }
 }
