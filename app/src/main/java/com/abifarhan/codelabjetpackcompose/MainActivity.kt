@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -55,10 +56,16 @@ fun Greeting(name: String) {
         modifier = Modifier.padding(vertical = 4.dp,
         horizontal = 8.dp)
         ) {
-        Column(modifier = Modifier.fillMaxWidth().padding(24.dp)) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(24.dp)) {
 //            Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
             Text(text = "Hello,")
             Text(text = name)
+            
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Show less")
+            }
         }
     }
 //    Image()
