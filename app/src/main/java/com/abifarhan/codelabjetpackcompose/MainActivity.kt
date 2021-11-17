@@ -1,6 +1,8 @@
 package com.abifarhan.codelabjetpackcompose
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -18,16 +20,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abifarhan.codelabjetpackcompose.ui.theme.CodeLabJetpackComposeTheme
+import kotlin.coroutines.coroutineContext
+
+private var testing: String? = null
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        testing = "hoisting"
         setContent {
             CodeLabJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
 //                    Greeting("Android")
-                    MyApp()
+                    MyApp(this)
                 }
             }
         }
@@ -35,11 +42,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun MyApp(names: List<String> = listOf("World", "Compose")) {
+private fun MyApp(context:Context,names: List<String> = listOf("World", "Compose")) {
 
     Column {
         for (name in names) {
-            Greeting(name = name)
+            Greeting(context = context,name = name)
         }
     }
 //    androidx.compose.material.Surface(color = MaterialTheme.colors.background) {
@@ -52,7 +59,7 @@ private fun MyApp(names: List<String> = listOf("World", "Compose")) {
 }
 
 @Composable
-fun Greeting(name: String) {
+fun Greeting(context:Context,name: String) {
     var expanded = remember { mutableStateOf(false) } //Don't do this
 
     val extraPadding = if (expanded.value) 48.dp else 0.dp
@@ -65,15 +72,16 @@ fun Greeting(name: String) {
         )
     ) {
         Row(modifier = Modifier.padding(24.dp)) {
-            Column(modifier = Modifier.weight(1f)
+            Column(modifier = Modifier
+                .weight(1f)
                 .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello,")
                 Text(text = name)
             }
             OutlinedButton(onClick = { expanded.value = !expanded.value }) {
-
                 Text(if (expanded.value) "Show less" else "Show more")
+                Toast.makeText(context, "this is the value $testing", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -85,6 +93,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     CodeLabJetpackComposeTheme {
-        MyApp()
+//        MyApp()
     }
 }
