@@ -5,22 +5,17 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abifarhan.codelabjetpackcompose.ui.theme.CodeLabJetpackComposeTheme
-import kotlin.coroutines.coroutineContext
 
 private var testing: String? = null
 
@@ -34,7 +29,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
 //                    Greeting("Android")
-                    MyApp(this)
+//                    MyApp(this)
+                    OnBoardingScreen()
                 }
             }
         }
@@ -42,11 +38,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun MyApp(context:Context,names: List<String> = listOf("World", "Compose")) {
+private fun MyApp(context: Context, names: List<String> = listOf("World", "Compose")) {
 
     Column {
         for (name in names) {
-            Greeting(context = context,name = name)
+            Greeting(context = context, name = name)
         }
     }
 //    androidx.compose.material.Surface(color = MaterialTheme.colors.background) {
@@ -59,7 +55,7 @@ private fun MyApp(context:Context,names: List<String> = listOf("World", "Compose
 }
 
 @Composable
-fun Greeting(context:Context,name: String) {
+fun Greeting(context: Context, name: String) {
     var expanded = remember { mutableStateOf(false) } //Don't do this
 
     val extraPadding = if (expanded.value) 48.dp else 0.dp
@@ -72,9 +68,10 @@ fun Greeting(context:Context,name: String) {
         )
     ) {
         Row(modifier = Modifier.padding(24.dp)) {
-            Column(modifier = Modifier
-                .weight(1f)
-                .padding(bottom = extraPadding)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello,")
                 Text(text = name)
@@ -87,6 +84,30 @@ fun Greeting(context:Context,name: String) {
 
     }
 //    Image()
+}
+
+@Composable
+fun OnBoardingScreen() {
+//    TODO: This state should be hoisted
+    val shouldShowOnBoarding by remember { mutableStateOf(true) }
+
+    Surface {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text("Welcome to the Basic Codelab!")
+            Button(
+                modifier = Modifier.padding(vertical = 24.dp),
+                onClick = { /*TODO*/ }) 
+            {
+                Text(text = "Continue")
+            }
+
+        }
+    }
+
 }
 
 @Preview(showBackground = true, widthDp = 320)
