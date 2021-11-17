@@ -3,6 +3,7 @@ package com.abifarhan.codelabjetpackcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -26,10 +27,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    androidx.compose.material.Surface(color = MaterialTheme.colors.primary) {
+        Text(text = "Hello $name!")
+    }
+//    Image()
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Text preview")
 @Composable
 fun DefaultPreview() {
     CodeLabJetpackComposeTheme {
