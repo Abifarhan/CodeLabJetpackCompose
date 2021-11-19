@@ -34,13 +34,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(
-    showBackground = true,
-    widthDp = 320,
-    uiMode = UI_MODE_NIGHT_YES,
-    name = "DefaultPreviewDark"
-)
-
 
 //here the new
 
@@ -77,7 +70,7 @@ fun OnboardingScreen(onContinueClicked: () -> Unit) {
 }
 
 @Composable
-private fun Greetings(names: List<String> = List(1000) { "$it" } ) {
+private fun Greetings(names: List<String> = List(1000) { "$it" }) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
         items(items = names) { name ->
             Greeting(name = name)
@@ -85,11 +78,21 @@ private fun Greetings(names: List<String> = List(1000) { "$it" } ) {
     }
 }
 
+
+@Preview(
+    showBackground = true,
+    widthDp = 320,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+
+
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnboardingPreview() {
     CodeLabJetpackComposeTheme {
-        OnboardingScreen(onContinueClicked = {})
+//        OnboardingScreen(onContinueClicked = {})
+        Greetings()
     }
 }
 
@@ -110,9 +113,10 @@ private fun Greeting(name: String) {
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         Row(modifier = Modifier.padding(24.dp)) {
-            Column(modifier = Modifier
-                .weight(1f)
-                .padding(bottom = extraPadding.coerceAtLeast(0.dp))
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
                 Text(text = "Hello, ")
                 Text(text = name)
@@ -126,10 +130,10 @@ private fun Greeting(name: String) {
     }
 }
 
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-fun DefaultPreview() {
-    CodeLabJetpackComposeTheme {
-        Greetings()
-    }
-}
+//@Preview(showBackground = true, widthDp = 320)
+//@Composable
+//fun DefaultPreview() {
+//    CodeLabJetpackComposeTheme {
+//        Greetings()
+//    }
+//}
