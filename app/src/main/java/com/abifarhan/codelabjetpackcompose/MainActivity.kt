@@ -1,5 +1,6 @@
 package com.abifarhan.codelabjetpackcompose
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,103 +34,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-//@Composable
-//private fun MyApp() {
-//    var shouldShowOnBoarding by remember { mutableStateOf(true) }
-//
-//    if (shouldShowOnBoarding) {
-//        OnBoardingScreen(onContinueClicked = {
-//            shouldShowOnBoarding = false
-//        })
-//    } else {
-//        Greetings()
-//    }
-//}
-//
-//@Composable
-//fun OnBoardingScreen(onContinueClicked: () -> Unit) {
-////    TODO: This state should be hoisted
-//
-//    Surface {
-//        Column(
-//            modifier = Modifier.fillMaxSize(),
-//            verticalArrangement = Arrangement.Center,
-//            horizontalAlignment = Alignment.CenterHorizontally
-//        ) {
-//            Text("Welcome to the Basic Codelab!")
-//            Button(
-//                modifier = Modifier.padding(vertical = 24.dp),
-//                onClick = { onContinueClicked })
-//            {
-//                Text(text = "Continue")
-//            }
-//
-//        }
-//    }
-//
-//}
-//
-//@Composable
-//fun Greetings(names: List<String> = List(1000) { "$it" }) {
-//    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
-//        items(items = names) { name ->
-//            Greeting(name = name)
-//        }
-//    }
-////    Column(modifier = Modifier.padding(vertical = 4.dp)) {
-////        for (name in names) {
-////            Greeting(name = name)
-////        }
-////    }
-//}
-//
-//@Composable
-//fun Greeting(name: String) {
-//    var expanded by remember { mutableStateOf(false) } //Don't do this
-//
-////    val extraPadding = if (expanded.value) 48.dp else 0.dp
-//    val extraPadding by animateDpAsState(
-//        if (expanded) 48.dp else 0.dp
-//    )
-//    Surface(
-//        color = MaterialTheme.colors.primary,
-//        modifier = Modifier.padding(
-//            vertical = 4.dp,
-//            horizontal = 8.dp
-//        )
-//    ) {
-//        Row(modifier = Modifier.padding(24.dp)) {
-//            Column(
-//                modifier = Modifier
-//                    .weight(1f)
-//                    .padding(bottom = extraPadding)
-//            ) {
-//                Text(text = "Hello,")
-//                Text(text = name)
-//            }
-//            OutlinedButton(
-//                onClick = { expanded = !expanded }
-//            )
-//            {
-//                Text(if (expanded) "Show less" else "Show more")
-////                Toast.makeText(context, "this is the value $testing", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//
-//    }
-////    Image()
-//}
-//
-//
-//@Preview(showBackground = true, widthDp = 320)
-//@Composable
-//fun DefaultPreview() {
-//    CodeLabJetpackComposeTheme {
-//        MyApp()
-////        OnBoardingScreen()
-//    }
-//}
+@Preview(
+    showBackground = true,
+    widthDp = 320,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
 
 
 //here the new
