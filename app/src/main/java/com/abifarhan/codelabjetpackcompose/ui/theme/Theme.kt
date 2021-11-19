@@ -5,11 +5,15 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
+    primary = LightBlue,
     primaryVariant = Purple700,
-    secondary = Teal200
+    secondary = Teal200,
+    surface = Blue,
+    onSurface = Color.White,
+    onPrimary = Navy
 )
 
 private val LightColorPalette = lightColors(
@@ -45,3 +49,10 @@ fun CodeLabJetpackComposeTheme(
         content = content
     )
 }
+
+//private val LightColorPalette = lightColors(
+//    surface = Blue,
+//    onSurface = Color.White,
+//    primary = LightBlue,
+//
+//)
