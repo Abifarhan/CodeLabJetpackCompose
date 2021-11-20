@@ -39,7 +39,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     if (shouldShowOnboarding) {
@@ -51,7 +50,6 @@ fun MyApp() {
 
 @Composable
 fun OnboardingScreen(onContinueClicked: () -> Unit) {
-
     Surface {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -129,11 +127,3 @@ private fun Greeting(name: String) {
         }
     }
 }
-
-//@Preview(showBackground = true, widthDp = 320)
-//@Composable
-//fun DefaultPreview() {
-//    CodeLabJetpackComposeTheme {
-//        Greetings()
-//    }
-//}
